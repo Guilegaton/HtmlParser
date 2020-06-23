@@ -13,7 +13,7 @@ namespace HtmlParser.Business
         /// Convert nodes to models
         /// </summary>
         /// <param name="node">The Node that was returned from SearchService</param>
-        /// <returns></returns>
+        /// <returns>A filled model.</returns>
         public static TModel Parse(INode<TModel> node)
         {
             var model = new TModel();

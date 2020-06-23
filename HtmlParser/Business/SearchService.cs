@@ -11,12 +11,12 @@ namespace HtmlParser.Business
         #region Public Methods
 
         /// <summary>
-        /// Search html subtrees by source html code and template. Returns a collection of nodes containing html nodes with desired characteristics.
+        /// Search html subtrees by source html code and template.
         /// </summary>
         /// <typeparam name="TModel">Parsing Model. Must be a class with a default constructor.</typeparam>
         /// <param name="html">The source html code.</param>
         /// <param name="node">The parsing template.</param>
-        /// <returns></returns>
+        /// <returns>Returns a collection of nodes containing html nodes with desired characteristics.</returns>
         public static IEnumerable<INode<TModel>> SearchBlock<TModel>(string html, INode<TModel> node) where TModel : class, new()
         {
             var config = Configuration.Default;
@@ -27,12 +27,12 @@ namespace HtmlParser.Business
         }
 
         /// <summary>
-        /// Search html subtrees by anglesharp source document and template. Returns a collection of nodes containing html nodes with desired characteristics.
+        /// Search html subtrees by anglesharp source document and template.
         /// </summary>
         /// <typeparam name="TModel">Parsing Model. Must be a class with a default constructor.</typeparam>
         /// <param name="document">The AngelSharp resource document.</param>
         /// <param name="node">The parsing template.</param>
-        /// <returns></returns>
+        /// <returns>Returns a collection of nodes containing html nodes with desired characteristics.</returns>
         public static IEnumerable<INode<TModel>> SearchBlock<TModel>(INode document, INode<TModel> node) where TModel : class, new()
         {
             var result = new List<INode<TModel>>();
@@ -58,12 +58,12 @@ namespace HtmlParser.Business
         }
 
         /// <summary>
-        /// Search html subtrees by anglesharp source document and collection of template. Returns a collection of nodes containing html nodes with desired characteristics.
+        /// Search html subtrees by anglesharp source document and collection of template.
         /// </summary>
         /// <typeparam name="TModel">Parsing Model. Must be a class with a default constructor.</typeparam>
         /// <param name="document">The AngelSharp resource document.</param>
         /// <param name="nodes">The collection of parsing templates</param>
-        /// <returns></returns>
+        /// <returns>Returns a collection of nodes containing html nodes with desired characteristics.</returns>
         public static IEnumerable<INode<TModel>> SearchBlock<TModel>(INode document, IEnumerable<INode<TModel>> nodes) where TModel : class, new()
         {
             var result = new List<INode<TModel>>();
@@ -90,12 +90,12 @@ namespace HtmlParser.Business
         }
 
         /// <summary>
-        /// Search the subtree in the anglesharp element by node template. Returns a node with desired characteristics.
+        /// Search the subtree in the anglesharp element by node template.
         /// </summary>
         /// <typeparam name="TModel">Parsing Model. Must be a class with a default constructor</typeparam>
         /// <param name="element">The AngleSharp resource element.</param>
         /// <param name="node">The template node.</param>
-        /// <returns></returns>
+        /// <returns>Returns a node with desired characteristics.</returns>
         public static INode<TModel> ContainsThisBlocks<TModel>(IElement element, INode<TModel> node) where TModel : class, new()
         {
             var result = default(INode<TModel>);
