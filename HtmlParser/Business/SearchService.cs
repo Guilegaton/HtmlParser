@@ -58,7 +58,23 @@ namespace HtmlParser.Business
         }
 
         /// <summary>
-        /// Search html subtrees by anglesharp source document and collection of template.
+        /// Search html subtrees by source html and collection of templates.
+        /// </summary>
+        /// <typeparam name="TModel">Parsing Model. Must be a class with a default constructor.</typeparam>
+        /// <param name="document">The AngelSharp resource document.</param>
+        /// <param name="nodes">The collection of parsing templates</param>
+        /// <returns>Returns a collection of nodes containing html nodes with desired characteristics.</returns>
+        public static IEnumerable<INode<TModel>> SearchBlock<TModel>(string html, IEnumerable<INode<TModel>> nodes) where TModel : class, new()
+        {
+            var config = Configuration.Default;
+            var context = BrowsingContext.New(config);
+            var document = context.OpenAsync(req => req.Content(html)).GetAwaiter().GetResult();
+
+            return SearchBlock(document, nodes);
+        }
+
+        /// <summary>
+        /// Search html subtrees by anglesharp source document and collection of templates.
         /// </summary>
         /// <typeparam name="TModel">Parsing Model. Must be a class with a default constructor.</typeparam>
         /// <param name="document">The AngelSharp resource document.</param>
